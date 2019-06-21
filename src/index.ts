@@ -1,15 +1,15 @@
-const googleTrends = require('google-trends-api');
+import { TrendNotifierConsole } from './models/implementations/TrendNotifierConsole';
+import { TrendDetectorGoogle } from './models/implementations/TrendDetectorGoogle';
 
 class Main {
 
     public static async main(){
-        const dailyTrends = await this.getDailyTrends();
-        console.log(JSON.stringify(JSON.parse(dailyTrends), null, 4));
-    }
+        const trendNotifier = new TrendNotifierConsole();
+        await trendNotifier.init();
+        const trendDetector = new TrendDetectorGoogle(trendNotifier);
+        await trendDetector.init();
+        await trendDetector.start();
 
-    private static async getDailyTrends(){
-        const trends = await googleTrends.dailyTrends({ geo: 'IT' });
-        return trends;
     }
 
 }
