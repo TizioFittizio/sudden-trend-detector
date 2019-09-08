@@ -3,10 +3,13 @@
         "start": "node ./node_modules/typescript/bin/tsc && node ./dist/index.js"
     },
     "dependencies": {
-        "google-trends-api": "^4.9.0"
+        "google-trends-api": "^4.9.0",
+        "node-notifier": "^5.4.3",
+        "open": "^6.4.0"
     },
     "devDependencies": {
         "@types/node": "^12.0.8",
+        "@types/open": "^6.2.1",
         "tslint": "^5.18.0",
         "tslint-sonarts": "^1.9.0",
         "typescript": "^3.5.2"
